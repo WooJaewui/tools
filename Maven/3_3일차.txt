@@ -1,0 +1,41 @@
+
+ 3일차 - 7강.
+
+
+
+ # 컴파일러 플러그인과 JDK 버전 변경.
+
+컴파일 Goals 종류.
+copile : compile phases에서 실행되는 goal.
+testCompile : test-compile phases에서 실행되는 goal.
+
+JDK 버전 바꾸기 - 구버전 ( 버전 + 추가적인 사항 )
+<build>
+	<plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>			
+			<version>3.8.1버전정보</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+
+
+JDK 버전 바꾸기 - 신버전 ( JDK만 바꿀때 사용 )
+<properties>
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>	
+</properties>
+
+주의사항.
+pom.xml을 변경하고 나면 project 우클릭 후 maven -> update Project를 클릭해야된다.
+
+아키텍처타입.
+mvn archetype:generate : archetype들을 확인할 수 있다.
+maven-archetype-quickstart : archetype을 사용하지 않겠다.
+
+
+

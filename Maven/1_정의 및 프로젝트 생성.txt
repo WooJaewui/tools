@@ -1,0 +1,56 @@
+
+ 1일차 - 1~3강.
+
+
+
+ # Maven이란?
+
+프로젝트 빌드 과정.
+프로젝트 생성 -> 라이브러리 설정 -> 코드 작업 
+-> 컴파일 -> 테스트 -> 패키지 만들기 -> 배포 -> 레포팅
+
+Maven.
+빌드에 특화된 프로그램이다.
+IDE( Editor )를 도와서 빌드를 수행한다.
+IDE > Maven. 
+비슷한 빌드 도구로는 Gradle, Ant 등이 있다.
+
+
+
+ # 메이븐 설치하기.
+
+설치.
+사이트 : https://maven.apache.org/
+
+인스톨 순서.
+사이트 -> Download -> Files -> Binary zip archive 다운로드. ( 압축풀면 완료 )
+
+cmd.
+path : 환경변수 path에 설정된 모든 path를 확인.
+
+메이븐 환경변수 설정.
+변수 이름 : M2_HOME
+변수 값( 경로 ) : apache-maven-3.버전 ( 압축 푼 폴더 이름 )
+PATH에 추가 : %M2_HOME%\bin
+
+
+
+ # 자바 프로젝트 생성하기.
+
+자바 프로젝트 생성예시.
+mvc archetype:generate -DgroupId=com.newlecture -DartifactId=javaprj 
+-DarchetypeArtifactId=maven-archetype-quickstart
+
+요소 설명.
+mvc archetype : generate : archetype을 생성한다는 뜻.
+-DgroupId : 프로젝트를 식별하기 위한 그룹명.
+-DartifactId : 이번에 만들 새로운 프로젝트 이름.
+-DarchetypeArtifactId : 다른 사람이 만든 또는 내가 만든 archetype을 불러올 수 있다.
+Interactive mode : 나중에 설명. ( enter입력 )
+1.0 : 버전을 앞에 나온 버전으로 하겠다. ( enter입력 ) 
+SNAPSHOT : 현재 개발중인 버전이다.
+Y : 패키지 명이 맞는지 물어봄. ( y입력 ) 
+
+
+
+

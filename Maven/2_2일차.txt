@@ -1,0 +1,51 @@
+ 
+ 2일차 - 5 ~ 
+
+
+
+ # Build Lifecycle.
+
+Phases.
+메이븐이 실행하는 순서 단계를 의미한다.
+
+Phases 종류.
+validate : 검증.
+initialize : 초기화하기.
+compile : 컴파일.
+test : 테스트.
+package : 패키징하기. ( jar, war , pom , ear 등 )
+install : 인스톨하기.
+deploy : 뒤에서 알아보기.
+
+Phases 원리.
+내가 원하는 Phases를 실행하면 그 전 단계까지는 알아서 실행된다.
+
+POM.xml. ( Project Object Model )
+Phases단계를 결정할 수 있는 파일.
+Phases에 설정된 프로그램( 플러그인 )을 선택할 수 있다.
+
+Maven원리.
+Phases단계마다 프로그램이 존재해서 개별적으로 실행된다. 
+Maven에서 이 프로그램을 플러그인으로 부른다.
+플러그인들은 Goal이라는 작은 프로그램들로 구성되어 있다.
+
+사용하기.
+mvn help:describe -Dcmd=compile 
+
+
+
+ # 이클립스 IDE로 Maven 프로젝트 임포트하기.
+
+이클립스 사용 이유.
+Maven은 편집 기능 등 부족한 기능들이 있는데, 
+이클립스와 Maven을 연결해서 사용하면 이클립스의 기능도 같이 사용할 수 있다. ( 편집 가능 )
+
+버전이 낮아서 Maven project가 없다면.
+Help -> Eclipse Marketplace... -> Maven Integration for Ecleipse 다운로드.
+( 최근 Eclipse 버전에서는 기본으로 다운로드 되어있다 )
+
+Maven파일 임포트하기.
+Maven -> Existing Maven Projects -> Maven Project 폴더 선택.
+
+
+

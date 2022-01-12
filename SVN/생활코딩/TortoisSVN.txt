@@ -1,0 +1,164 @@
+
+ TortoisSVN - 1강 ~ 9강.
+
+
+
+ # 서브버전이란 ?
+
+버전관리의 목적.
+작업이력관리.
+문제의 파악.
+에전 버전 파일의 복원.
+수정한 부분의 검증.
+협업 지원.
+
+서브버전 사용방법.
+서버 : 작성한 코드가 저장되는 공간 - 데이터를 제공하는 입장. ( 네트워크 상에 존재 )
+클라이언트 : 서버에서 저장한 데이터를 사용하고 다시 서버에 저장 - 데이터를 사용하는 입장.
+
+SVN 사용.
+우클릭 + SVN Commit : 서버에 파일을 저장. ( 메모 가능 )
+우클릭 + totoriesSVN -> show log : log( 일지 )를 확인할 수 있다.
+
+SVN 용어.
+revision : 하나의 기록을 의미한다. ( 하나의 변경 사항 )
+
+
+
+ # TortoiseSVN - 설치.
+
+설치 사이트.
+http://tortoisesvn.net/downloads.html -> 64, 32비트 선택 -> 한글팩 설치.
+
+설치 확인.
+우클릭했을 때 SVN 관련 설정이 보이면 제대로 설치 완료.
+
+한글팩 설정.
+우클릭 -> TortoiseSVN -> Settings -> Language 한국어로 변경. ( 한국어를 권장하진 않음 )
+
+
+
+ # TortoiseSVN - 저장소1.
+
+SVN 이해.
+클라이언트 컴퓨터에서 어떠한 작업( Edit )를 하고 Repository( 다른 컴퓨터 )에 데이터를 commit하면 저장된다.
+
+구글코드. ( 이제는 안되는 듯 ? )
+SVN의 저장소를 제공한다. 
+이슈 트래커 제공.
+오픈소스만 사용할 수 있다.
+무료.
+
+
+
+ # TortoiseSVN - 저장소2.
+
+SVN 사용법.
+1. checkout. 클릭.
+2. URL of repository : 저장소 URL 적기.
+3. Checkout directory : 내 로컬 저장소 디렉토리 적기.
+4. Checkout directory에 파일들을 추가하면 commit가능.
+
+SVN 인증.
+Authentication에 id와 비밀번호를 입력한다. ( Repository 관리자가 어떠한 권한을 부여 )
+
+trunk 폴더.
+trunk가 Checkout directory안에 파일들을 저장하는 장소.
+trunk( 줄기 )
+
+
+
+ # TortoiseSVN branch/tag1.
+
+branch 원리.
+새로운 기능을 개발해야 되는 경우 사용.
+trunk와 별도로 개발한 후 상황에 따라 trunk에 포함 할지 말지를 결정.
+
+용어.
+Trunk 줄기 : 메인 소스.
+Branch 가지 : 서브 소스.
+Merge : 메인 소스와 서브 소스를 병합.
+tag : 현재 상태를 기록.
+
+
+
+ # TortoiseSVN branch/tag2.
+
+용어.
+merge : A라는 소스코드와 B라는 소스코드를 병합한다.
+
+
+
+ # TortoiseSVN branch/tag3.
+
+URL to merge from.
+경로를 적어주면 "경로에 있는 데이터를 병합하겠다" 라는 의미.
+
+Revision rage to merge.
+URL to merge from에서 정해준 경로에서 원하는 파일을 찾아서 merge 가능.
+
+merge 주의사항.
+merge를 하기 전에 test merge를 통해 시뮬레이션을 하고 merge 하자. 
+
+Resolve Conflict.
+update를 하지 않고 코드를 수정한 경우 발생하는 충돌 현상.
+
+Resolve Conflict 해결 선택 사항.
+Prefer local : 내가 작업한 파일을 repository에 저장.
+Prefer repository : repository에 저장된 데이터를 그대로 저장.
+Edit conflict : 충돌이 일어나는 부분을 확인하고 수정할 수 있다.
+Resolve later : 나중에 처리하겠다. ( 충돌 부분은 commit하지 않음 )
+Resolve all later : 모두 나중에 처리하겠다. ( 모든 부분을 나중에 처리 )
+
+Resolved.
+충돌된 부분을 수정한 후 누르면 충돌관련 파일들이 모두 삭제되고 내가 수정한 소스 파일만 남는다.
+
+tag와 branch의 차이.
+tag는 더 이상 수정하지 않을 소스코드를 저장.
+branch는 추가적인 작업을 할 소스코드를 저장.
+
+
+
+ # 작업흐름.
+
+용어정리.
+checkout : 저장소에서 최신 버전의 소스코드를 최초로 받아오는 행위.
+update : 로컬 저장소의 파일들을 저장소의 최신버전으로 받아오는 행위.
+commit : 로컬 저장소의 변경된 내용을 서버로 전송하는 행위.
+revert : 로컬 저장소의 내용을 이전 상태로 돌리는 행위.
+add : 버전관리 대상으로 파일을 등록, 저장소에 저장은 되지 않음.
+conflict : 다른사람과 협업중에 같은 소스파일을 수정할 때 발생하는 오류.
+
+Status.
+added : repository에 존재하는 파일.
+modified : repository에 존재하지만 소스코드가 변경된 파일.
+non-versioned : repository에 존재하지 않는 파일.
+
+
+
+ # 협업.
+
+형상관리 툴이 없다면.
+다른 사람과 협업시 누군가가 소스코드를 수정했는지 알 수 없어서 함부로 파일을 업로드 할 수 없다.
+
+협업 팁.
+항상 commit하기전에 update해서 다른사람이 소스코드를 수정했을 상황을 생각한다.
+
+dif 확인.
+Revision이 써있는 소스코드가 Repository에 저장된 소스코드.
+
+협업에서 같은 지점을 수정하는 경우.
+나중에 commit하는 사람이 update과정에서 conflicted가 발생한다.
+Edit conflicts : 내가 직접 소스 코드를 수정.
+Resolve ... theirs : Repository에 저장된 파일 저장.
+Resolve ... mine : 내 파일로 저장.
+
+충돌이 났을때 생기는 파일.
+파일이름.r버전 : conflict이 발생한 revision을 알려준다.
+파일이름.r최신버전 : 가장 최신버전 revision을 알려준다.
+
+충돌이 났을 때 해결 방법.
+conflict -> 원하는 방법으로 소스코드 수정 -> resolved -> commit
+
+
+
